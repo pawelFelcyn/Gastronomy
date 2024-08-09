@@ -1,11 +1,28 @@
+using Gastronomy.Backend.Database;
+using Gastronomy.Presentation.Web;
 using Gastronomy.Presentation.Web.Components;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents();
 
+var dbConnectionString = builder.Configuration.GetConnectionString("Database");
+builder.Services.AddDbContext<GastronomyDbContext>(options => options.UseSqlServer(
+    dbConnectionString, x => x.MigrationsAssembly("Gastronomy.Backend.Database.MSSQL")));
+
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<GastronomyDbContext>();
+    dbContext.Database.EnsureCreated();
+    await dbContext.Database.MigrateAsync();
+
+    await DataSeeder.SeedData(dbContext);
+}
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
