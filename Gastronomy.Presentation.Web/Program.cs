@@ -1,11 +1,11 @@
 using Gastronomy.Backend.Database;
 using Gastronomy.Presentation.Web;
 using Gastronomy.Presentation.Web.Components;
+using Gastronomy.UI.Dishes;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
@@ -24,7 +24,7 @@ using (var scope = app.Services.CreateScope())
     var dbContext = scope.ServiceProvider.GetRequiredService<GastronomyDbContext>();
     dbContext.Database.EnsureCreated();
     await dbContext.Database.MigrateAsync();
-
+   
     await DataSeeder.SeedData(dbContext);
 }
 
@@ -42,6 +42,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseAntiforgery();
 
-app.MapRazorComponents<App>().AddInteractiveServerRenderMode();
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
 
 app.Run();

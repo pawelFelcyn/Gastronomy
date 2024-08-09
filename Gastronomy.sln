@@ -5,37 +5,37 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SRC", "SRC", "{67B3B871-7980-4E1B-B595-A1482EC64F3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Domain", "Gastronomy.Domain\Gastronomy.Domain.csproj", "{5C87097E-F919-4BD4-909D-43637D60395A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Domain", "Gastronomy.Domain\Gastronomy.Domain.csproj", "{5C87097E-F919-4BD4-909D-43637D60395A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{530B4AE0-83B4-4A80-9F01-97D167ED48C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Dtos", "Gastronomy.Dtos\Gastronomy.Dtos.csproj", "{8D9E16C8-C94E-4F59-B9A3-4FC710C0880B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Dtos", "Gastronomy.Dtos\Gastronomy.Dtos.csproj", "{8D9E16C8-C94E-4F59-B9A3-4FC710C0880B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{BC79574A-7F79-4086-82A1-784A423D001A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.UI.Shared", "Gastronomy.UI.Shared\Gastronomy.UI.Shared.csproj", "{5AA7DEA8-623A-4851-837E-BD575563D434}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.UI.Shared", "Gastronomy.UI.Shared\Gastronomy.UI.Shared.csproj", "{5AA7DEA8-623A-4851-837E-BD575563D434}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.UI.Dishes", "Gastronomy.UI.Dishes\Gastronomy.UI.Dishes.csproj", "{78A7CCEF-07E1-4571-834E-06F577F60E29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.UI.Dishes", "Gastronomy.UI.Dishes\Gastronomy.UI.Dishes.csproj", "{78A7CCEF-07E1-4571-834E-06F577F60E29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Services.Abstractions", "Gastronomy.Services.Abstractions\Gastronomy.Services.Abstractions.csproj", "{5C1C52B3-4F9B-4DD3-AAEB-06659ED78634}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Services.Abstractions", "Gastronomy.Services.Abstractions\Gastronomy.Services.Abstractions.csproj", "{5C1C52B3-4F9B-4DD3-AAEB-06659ED78634}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{BCF7086B-024A-4A48-B25A-CA958A3F926D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{455D415E-871C-425F-8D62-28D6E8E7AECD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Backend.Database", "Gastronomy.Backend.Database\Gastronomy.Backend.Database.csproj", "{1FFE6671-F4D2-484F-AB97-A584D5345A1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Backend.Database", "Gastronomy.Backend.Database\Gastronomy.Backend.Database.csproj", "{1FFE6671-F4D2-484F-AB97-A584D5345A1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Backend.Database.MSSQL", "Gastronomy.Backend.Database.MSSQL\Gastronomy.Backend.Database.MSSQL.csproj", "{82931D5E-012D-4325-BB2A-363678198807}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Backend.Database.MSSQL", "Gastronomy.Backend.Database.MSSQL\Gastronomy.Backend.Database.MSSQL.csproj", "{82931D5E-012D-4325-BB2A-363678198807}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F69226D8-9765-4C9B-B849-7763C0DD3541}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Core.Abstractions", "Gastronomy.Core.Abstractions\Gastronomy.Core.Abstractions.csproj", "{5C3A1448-CC4A-46E5-852B-11FD779069BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Core.Abstractions", "Gastronomy.Core.Abstractions\Gastronomy.Core.Abstractions.csproj", "{5C3A1448-CC4A-46E5-852B-11FD779069BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Core.Web", "Gastronomy.Core.Web\Gastronomy.Core.Web.csproj", "{E70261E8-F55C-4AC8-B706-342ACE8A4189}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Core.Web", "Gastronomy.Core.Web\Gastronomy.Core.Web.csproj", "{E70261E8-F55C-4AC8-B706-342ACE8A4189}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Services.Web", "Gastronomy.Services.Web\Gastronomy.Services.Web.csproj", "{4D0BB0F6-73DB-47BD-AE64-444D49D89724}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Services.Web", "Gastronomy.Services.Web\Gastronomy.Services.Web.csproj", "{4D0BB0F6-73DB-47BD-AE64-444D49D89724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Presentation.Web", "Gastronomy.Presentation.Web\Gastronomy.Presentation.Web.csproj", "{840A89D9-E572-44C7-87FE-45B8E0E44D37}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Presentation.Web", "Gastronomy.Presentation.Web\Gastronomy.Presentation.Web.csproj", "{840A89D9-E572-44C7-87FE-45B8E0E44D37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
