@@ -12,5 +12,9 @@ internal class RestaurantConfiguration : IEntityTypeConfiguration<Restaurant>
                .HasMaxLength(256);
         builder.HasIndex(x => x.Name)
             .IsUnique();
+        builder.HasMany(x => x.DishCategories)
+            .WithOne(x => x.Restaurant)
+            .OnDelete(DeleteBehavior.Cascade)
+            .HasForeignKey(x => x.RestaurantId);
     }
 }

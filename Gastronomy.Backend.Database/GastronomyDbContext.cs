@@ -12,9 +12,13 @@ public class GastronomyDbContext : DbContext
     }
 
     public DbSet<Restaurant> Restaurants { get; set; }
+    public DbSet<Dish> Dishes { get; set; }
+    public DbSet<DishCategory> DishCategories { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfiguration(new RestaurantConfiguration());
+        modelBuilder.ApplyConfiguration(new DishCategoryConfiguration());
+        modelBuilder.ApplyConfiguration(new DishConfiguration());
     }
 }
