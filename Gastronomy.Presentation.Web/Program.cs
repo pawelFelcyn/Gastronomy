@@ -7,7 +7,9 @@ using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
-builder.Services.AddRazorComponents()
+builder.Services
+    .AddLocalization()
+    .AddRazorComponents()
     .AddInteractiveServerComponents();
 
 var dbConnectionString = builder.Configuration.GetConnectionString("Database");
@@ -28,6 +30,14 @@ using (var scope = app.Services.CreateScope())
     await DataSeeder.SeedData(dbContext);
 }
 
+
+string[] supportedCultures = ["pl-PL"];
+var localizationOptions = new RequestLocalizationOptions()
+    .SetDefaultCulture(supportedCultures[0])
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
