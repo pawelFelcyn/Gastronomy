@@ -1,8 +1,14 @@
 ﻿@* later this has to be moved to a different assembly*@
 @page "/dishes"
 
-<MudSpacer/>
-<MudButton/>
+<MudButton StartIcon="@Icons.Material.Filled.Add"
+           Variant="Variant.Filled" Color="Color.Primary"
+           Class="rounded-pill mt-5"
+           OnClick="@OpenCreateNewDishPopup">
+    Dodaj
+</MudButton>
+
+
 
 @code {
 

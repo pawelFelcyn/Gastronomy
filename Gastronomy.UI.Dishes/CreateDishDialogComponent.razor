@@ -1,0 +1,51 @@
+<MudCard>
+    <MudCardContent>
+        <MudForm Model="@Model">
+            <MudGrid>
+                <MudItem xs="6">
+                    <MudTextField T="string" For="@(() => Model.Name)"
+                                  Label="Nazwa" @bind-Value="@Model.Name" />
+                </MudItem>
+                <MudItem xs="6">
+                    <MudNumericField T="decimal" For="@(() => Model.BasePrice)"
+                                     Label="Cena bazowa" @bind-Value="Model.BasePrice" />
+                </MudItem>
+                <MudItem xs="6">
+                    <MudCheckBox T="bool" @bind-Value="CreateNewCategory"
+                                 Label="Nowa kategoria" />
+                </MudItem>
+                <MudItem xs="6">
+                    @if (CreateNewCategory)
+                    {
+                        <MudTextField T="string" For="@(() => Model.NewCategoryName)"
+                                      Label="Nowa kategoria" @bind-Value="@Model.NewCategoryName" />
+                    }
+                    else
+                    {
+                        <MudSelect T="DishCategoryDto?" Label="Kategoria"
+                                   ValueChanged="@SelectedCategoryChanged">
+                            @foreach (var category in _categories)
+                            {
+                                <MudSelectItem T="DishCategoryDto" Value="@category">
+                                    <MudText>
+                                        @category.Name
+                                    </MudText>
+                                </MudSelectItem>
+                            }
+                        </MudSelect>
+                    }
+                </MudItem>
+                <MudItem xs="12" Class="d-flex justify-content-end">
+                    <MudButton Color="Color.Error" Variant="Variant.Outlined"
+                    Class="me-2">
+                        Anuluj
+                    </MudButton>
+                    <MudButton Color="Color.Primary"
+                    Variant="Variant.Filled">
+                        Zapisz
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudForm>
+    </MudCardContent>
+</MudCard>
