@@ -7,9 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Gastronomy.Backend.Database\Gastronomy.Backend.Database.csproj" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Gastronomy.Dtos\Gastronomy.Dtos.csproj" />
-    <ProjectReference Include="..\Gastronomy.Services.Abstractions\Gastronomy.Services.Abstractions.csproj" />
   </ItemGroup>
 
 </Project>

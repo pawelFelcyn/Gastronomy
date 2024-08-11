@@ -1,4 +1,5 @@
-﻿using Gastronomy.Dtos;
+﻿using FluentValidation;
+using Gastronomy.Dtos;
 using Gastronomy.UI.Dishes.Resources.Locales;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
@@ -9,6 +10,8 @@ public partial class CreateDishDialogComponent
 {
     [Inject]
     IStringLocalizer<Resource> Localizer { get; set; } = null!;
+    [Inject]
+    IValidator<CreateDishDto> Validator { get; set; } = null!;
 
     public CreateDishDto Model { get; } = new();
     private readonly List<DishCategoryDto> _categories = new();

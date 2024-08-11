@@ -13,6 +13,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Gastronomy.Backend.Database.MSSQL\Gastronomy.Backend.Database.MSSQL.csproj" />
     <ProjectReference Include="..\Gastronomy.Backend.Database\Gastronomy.Backend.Database.csproj" />
+    <ProjectReference Include="..\Gastronomy.Core.Web.DependencyInjection\Gastronomy.Core.Web.DependencyInjection.csproj" />
+    <ProjectReference Include="..\Gastronomy.Dtos.DependencyInjection\Gastronomy.Dtos.DependencyInjection.csproj" />
     <ProjectReference Include="..\Gastronomy.UI.Dishes\Gastronomy.UI.Dishes.csproj" />
   </ItemGroup>
 

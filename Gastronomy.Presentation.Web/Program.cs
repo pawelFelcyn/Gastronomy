@@ -4,11 +4,15 @@ using Gastronomy.Presentation.Web.Components;
 using Gastronomy.UI.Dishes;
 using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
+using Gastronomy.Dtos.DependencyInjection;
+using Gastronomy.Core.Web.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services
     .AddLocalization()
+    .AddCore()
+    .AddValidators()
     .AddRazorComponents()
     .AddInteractiveServerComponents();
 

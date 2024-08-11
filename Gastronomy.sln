@@ -43,6 +43,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{E55316
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Dtos.Tests", "Gastronomy.Dtos.Tests\Gastronomy.Dtos.Tests.csproj", "{7316D1FB-927D-4361-83B2-3A61E1AB22C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Dtos.DependencyInjection", "Gastronomy.Dtos.DependencyInjection\Gastronomy.Dtos.DependencyInjection.csproj", "{61F31F70-B646-49C3-AB4D-453B42A087EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Core.Web.DependencyInjection", "Gastronomy.Core.Web.DependencyInjection\Gastronomy.Core.Web.DependencyInjection.csproj", "{BBAD83EA-0D91-4074-8C21-687879177944}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -97,6 +101,14 @@ Global
 		{7316D1FB-927D-4361-83B2-3A61E1AB22C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7316D1FB-927D-4361-83B2-3A61E1AB22C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7316D1FB-927D-4361-83B2-3A61E1AB22C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61F31F70-B646-49C3-AB4D-453B42A087EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61F31F70-B646-49C3-AB4D-453B42A087EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61F31F70-B646-49C3-AB4D-453B42A087EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61F31F70-B646-49C3-AB4D-453B42A087EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBAD83EA-0D91-4074-8C21-687879177944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBAD83EA-0D91-4074-8C21-687879177944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBAD83EA-0D91-4074-8C21-687879177944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBAD83EA-0D91-4074-8C21-687879177944}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +132,8 @@ Global
 		{0154FFF2-97AA-4C2D-AEF9-7607F0B4AFF3} = {BC79574A-7F79-4086-82A1-784A423D001A}
 		{E5531606-49C5-4911-B89A-4B0B3813CB56} = {936D8474-9CA4-49EA-9DC6-ABA96122BD91}
 		{7316D1FB-927D-4361-83B2-3A61E1AB22C0} = {E5531606-49C5-4911-B89A-4B0B3813CB56}
+		{61F31F70-B646-49C3-AB4D-453B42A087EE} = {530B4AE0-83B4-4A80-9F01-97D167ED48C5}
+		{BBAD83EA-0D91-4074-8C21-687879177944} = {F69226D8-9765-4C9B-B849-7763C0DD3541}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {159470B9-1AF0-4A42-AABE-4381EEB1FC39}
