@@ -6,15 +6,12 @@ namespace Gastronomy.Dtos.Validators;
 
 public sealed class CreateDishDtoValidator : AbstractValidator<CreateDishDto>
 {
-    private readonly int _maxNameLen = 50;
-    private readonly decimal _minPrice = 0.0m;
-
     public CreateDishDtoValidator(IStringLocalizer<Resource> stringLocalizer, 
         ICreateDishDtoValidationService createDishDtoValidationService)
     {
         RuleFor(x => x.Name)
-            .MaximumLength(_maxNameLen)
-            .WithMessage(string.Format(stringLocalizer["TooLongDishNameErrorMessage"], _maxNameLen));
+            .MaximumLength(ValidationConstants.MaxDishNameLength)
+            .WithMessage(string.Format(stringLocalizer["TooLongDishNameErrorMessage"], ValidationConstants.MaxDishNameLength));
         RuleFor(x => x.Name)
             .NotEmpty()
             .WithMessage(stringLocalizer["EmptyDishNameErrorMessage"]);
@@ -22,28 +19,34 @@ public sealed class CreateDishDtoValidator : AbstractValidator<CreateDishDto>
             .MustAsync(async (x, token) => x is null || !await createDishDtoValidationService.IsNameTaken(x))
             .WithMessage(stringLocalizer["DishNameTakenErrorMessage"]);
         RuleFor(x => x.BasePrice)
-            .GreaterThan(0)
-            .WithMessage(stringLocalizer["PriceLessOrEqualToErrorMessage"]);
+            .GreaterThan(ValidationConstants.MinDishBasePrice)
+            .WithMessage(string.Format(stringLocalizer["PriceLessOrEqualToErrorMessage"], ValidationConstants.MinDishBasePrice));
 
-        When(x => x.ExistingCategoryId is null, () =>
+        When(x => x.IsNewCategory, () =>
         {
             RuleFor(x => x.NewCategoryName)
                 .NotEmpty()
                 .WithMessage(stringLocalizer["NewCategoryNameEmptyErrorMessage"]);
             RuleFor(x => x.NewCategoryName)
-                .MaximumLength(_maxNameLen)
-                .WithMessage(stringLocalizer["TooLongDishCategoryNameErrorMessage"]);
+                .MaximumLength(ValidationConstants.MaxDishCategoryNameLength)
+                .WithMessage(string.Format(stringLocalizer["TooLongDishCategoryNameErrorMessage"], ValidationConstants.MaxDishCategoryNameLength));
             RuleFor(x => x.NewCategoryName)
                 .MustAsync(async (x, token) => x is null || !await createDishDtoValidationService.IsNewCategoryNameTaken(x))
                 .WithMessage(stringLocalizer["DishCategoryNameTakenErrorMessage"]);
+            RuleFor(x => x.ExistingCategoryId)
+                .Null()
+                .WithMessage(stringLocalizer["ExistingDishCategoryMustBeNullWhenNewSelectedErrorMessage"]);
         }).Otherwise(() =>
         {
             RuleFor(x => x.NewCategoryName)
                 .Null()
                 .WithMessage(stringLocalizer["NewDishCategoryMustBeNullWhenExistingSelectedErrorMessage"]);
             RuleFor(x => x.ExistingCategoryId)
-                .MustAsync(async (x, _) => await createDishDtoValidationService.DishCategoryExists(x!.Value))
+                .MustAsync(async (x, _) => x is null || await createDishDtoValidationService.DishCategoryExists(x!.Value))
                 .WithMessage(stringLocalizer["ThisDishCategoryDoesNotExistErrorMessage"]);
+            RuleFor(x => x.ExistingCategoryId)
+                .NotNull()
+                .WithMessage(stringLocalizer["NullExistingCategoryErrorMessage"]);
         });
     }
 }

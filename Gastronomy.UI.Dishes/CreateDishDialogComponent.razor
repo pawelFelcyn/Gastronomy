@@ -1,30 +1,42 @@
+@using Gastronomy.Dtos.Validators
+@using Gastronomy.UI.Shared.Extensions;
+
 <MudCard>
     <MudCardContent>
-        <MudForm Model="@Model">
+        <MudForm Model="@Model" @bind-IsValid="@_isValid"
+                @ref="_form">
             <MudGrid>
                 <MudItem xs="6">
                     <MudTextField T="string" For="@(() => Model.Name)"
-                                  Label="@(Localizer["CreateNewDishNameLabel"])" @bind-Value="@Model.Name" />
+                                  Label="@(Localizer["CreateNewDishNameLabel"])" @bind-Value="@Model.Name"
+                                  Validation="@(new Func<string, Task<IEnumerable<string>>>(async _ =>  await Validator.ValidateSingleProperty(Model, nameof(Model.Name))))"
+                                  MaxLength="ValidationConstants.MaxDishNameLength"/>
                 </MudItem>
                 <MudItem xs="6">
                     <MudNumericField T="decimal" For="@(() => Model.BasePrice)"
-                                     Label="@(Localizer["CreateNewDishBasePriceLabel"])" @bind-Value="Model.BasePrice" />
+                                     Label="@(Localizer["CreateNewDishBasePriceLabel"])" @bind-Value="Model.BasePrice"
+                                     Min="ValidationConstants.MinDishBasePrice"
+                                     Validation="@(new Func<decimal, Task<IEnumerable<string>>>(async _ =>  await Validator.ValidateSingleProperty(Model, nameof(Model.BasePrice))))" />
                 </MudItem>
                 <MudItem xs="6">
                     <MudCheckBox T="bool" @bind-Value="CreateNewCategory"
-                                 Label="@(Localizer["CreateNewDishUseNewCategoryLabel"])" />
+                                 Label="@(Localizer["CreateNewDishUseNewCategoryLabel"])" 
+                                 />
                 </MudItem>
                 <MudItem xs="6">
                     @if (CreateNewCategory)
                     {
                         <MudTextField T="string" For="@(() => Model.NewCategoryName)"
                                       Label="@(Localizer["CreateNewDishNewCategoryNameLabel"])"
-                                      @bind-Value="@Model.NewCategoryName" />
+                                      @bind-Value="@Model.NewCategoryName"
+                                      MaxLength="ValidationConstants.MaxDishCategoryNameLength"
+                                      Validation="@(new Func<string, Task<IEnumerable<string>>>(async _ =>  await Validator.ValidateSingleProperty(Model, nameof(Model.NewCategoryName))))" />
                     }
                     else
                     {
                         <MudSelect T="DishCategoryDto?" Label="@(Localizer["CreateNewDishExistingategoryLabel"])"
-                                   ValueChanged="@SelectedCategoryChanged">
+                                   ValueChanged="@SelectedCategoryChanged"
+                                   Validation="@(new Func<DishCategoryDto?, Task<IEnumerable<string>>>(async _ =>  await Validator.ValidateSingleProperty(Model, nameof(Model.ExistingCategoryId))))">
                             @foreach (var category in _categories)
                             {
                                 <MudSelectItem T="DishCategoryDto" Value="@category">
@@ -38,11 +50,12 @@
                 </MudItem>
                 <MudItem xs="12" Class="d-flex justify-content-end">
                     <MudButton Color="Color.Error" Variant="Variant.Outlined"
-                    Class="me-2">
+                    Class="me-2" OnClick="Cancel">
                         @Localizer["CreateNewDishCancelButtonCaption"]
                     </MudButton>
                     <MudButton Color="Color.Primary"
-                    Variant="Variant.Filled">
+                    Variant="Variant.Filled"
+                    OnClick="(async () => await Submit())">
                         @Localizer["CreateNewDishSaveButtonCaption"]
                     </MudButton>
                 </MudItem>

@@ -138,4 +138,7 @@
   <data name="CreateNewDishUseNewCategoryLabel" xml:space="preserve">
     <value>Nowa kategoria</value>
   </data>
+  <data name="ErrorOnCreatingDish" xml:space="preserve">
+    <value>Nie udało się utworzyć nowego dania</value>
+  </data>
 </root>

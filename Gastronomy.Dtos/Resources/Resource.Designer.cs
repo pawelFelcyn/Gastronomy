@@ -88,6 +88,15 @@ namespace Gastronomy.Dtos.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Poniważ została wybrana nowa kategoria, nie można jednocześnie ustawić istniejącej..
+        /// </summary>
+        public static string ExistingDishCategoryMustBeNullWhenNewSelectedErrorMessage {
+            get {
+                return ResourceManager.GetString("ExistingDishCategoryMustBeNullWhenNewSelectedErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nazwa nowej kategorii jest wymagana..
         /// </summary>
         public static string NewCategoryNameEmptyErrorMessage {
@@ -102,6 +111,15 @@ namespace Gastronomy.Dtos.Resources {
         public static string NewDishCategoryMustBeNullWhenExistingSelectedErrorMessage {
             get {
                 return ResourceManager.GetString("NewDishCategoryMustBeNullWhenExistingSelectedErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kategoria jest wymagana.
+        /// </summary>
+        public static string NullExistingCategoryErrorMessage {
+            get {
+                return ResourceManager.GetString("NullExistingCategoryErrorMessage", resourceCulture);
             }
         }
         

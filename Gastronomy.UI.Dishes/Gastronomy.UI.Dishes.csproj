@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Gastronomy.Dtos\Gastronomy.Dtos.csproj" />
     <ProjectReference Include="..\Gastronomy.Services.Abstractions\Gastronomy.Services.Abstractions.csproj" />
+    <ProjectReference Include="..\Gastronomy.UI.Shared\Gastronomy.UI.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

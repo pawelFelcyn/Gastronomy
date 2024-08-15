@@ -122,5 +122,14 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
                 return ResourceManager.GetString("CreateNewDishUseNewCategoryLabel", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie udało się utworzyć nowego dania.
+        /// </summary>
+        internal static string ErrorOnCreatingDish {
+            get {
+                return ResourceManager.GetString("ErrorOnCreatingDish", resourceCulture);
+            }
+        }
     }
 }

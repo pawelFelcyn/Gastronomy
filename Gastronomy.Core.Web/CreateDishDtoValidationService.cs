@@ -19,18 +19,42 @@ public sealed class CreateDishDtoValidationService : ICreateDishDtoValidationSer
 
     public Task<bool> DishCategoryExists(Guid guid)
     {
-        return _dbContext.DishCategories.AnyAsync(x => x.Id == guid);
+        try
+        {
+            _dbContext.Semaphore.WaitAsync();
+            return _dbContext.DishCategories.AnyAsync(x => x.Id == guid);
+        }
+        finally
+        {
+            _dbContext.Semaphore.Release();   
+        }
     }
 
     public async Task<bool> IsNameTaken(string name)
     {
-        var restaurantId = await _userContextService.RestaurentId;
-        return await _dbContext.Dishes.AnyAsync(x => x.Name == name && x.DishCategory!.RestaurantId == restaurantId);
+        try
+        {
+            await _dbContext.Semaphore.WaitAsync();
+            var restaurantId = await _userContextService.RestaurentId;
+            return await _dbContext.Dishes.AnyAsync(x => x.Name == name && x.DishCategory!.RestaurantId == restaurantId);
+        }
+        finally
+        {
+            _dbContext.Semaphore.Release();
+        }
     }
 
     public async Task<bool> IsNewCategoryNameTaken(string name)
     {
-        var restaurantId = await _userContextService.RestaurentId;
-        return await _dbContext.DishCategories.AnyAsync(x => x.Name == name && x.RestaurantId == restaurantId);
+        try
+        {
+            await _dbContext.Semaphore.WaitAsync();
+            var restaurantId = await _userContextService.RestaurentId;
+            return await _dbContext.DishCategories.AnyAsync(x => x.Name == name && x.RestaurantId == restaurantId);
+        }
+        finally
+        {
+            _dbContext.Semaphore.Release();
+        }
     }
 }

@@ -126,11 +126,17 @@
   <data name="EmptyDishNameErrorMessage" xml:space="preserve">
     <value>Nazwa nie może być pusta.</value>
   </data>
+  <data name="ExistingDishCategoryMustBeNullWhenNewSelectedErrorMessage" xml:space="preserve">
+    <value>Poniważ została wybrana nowa kategoria, nie można jednocześnie ustawić istniejącej.</value>
+  </data>
   <data name="NewCategoryNameEmptyErrorMessage" xml:space="preserve">
     <value>Nazwa nowej kategorii jest wymagana.</value>
   </data>
   <data name="NewDishCategoryMustBeNullWhenExistingSelectedErrorMessage" xml:space="preserve">
     <value>Ponieważ została wybrana istniejąca kategoria, nie można jednocześnie dodać nowej.</value>
+  </data>
+  <data name="NullExistingCategoryErrorMessage" xml:space="preserve">
+    <value>Kategoria jest wymagana</value>
   </data>
   <data name="PriceLessOrEqualToErrorMessage" xml:space="preserve">
     <value>Cena nie może być mniejsza niż {0}.</value>

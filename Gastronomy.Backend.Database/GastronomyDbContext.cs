@@ -11,6 +11,7 @@ public class GastronomyDbContext : DbContext
         
     }
 
+    public SemaphoreSlim Semaphore { get; } = new(1);
     public DbSet<Restaurant> Restaurants { get; set; }
     public DbSet<Dish> Dishes { get; set; }
     public DbSet<DishCategory> DishCategories { get; set; }
@@ -20,5 +21,11 @@ public class GastronomyDbContext : DbContext
         modelBuilder.ApplyConfiguration(new RestaurantConfiguration());
         modelBuilder.ApplyConfiguration(new DishCategoryConfiguration());
         modelBuilder.ApplyConfiguration(new DishConfiguration());
+    }
+
+    public override void Dispose()
+    {
+        base.Dispose();
+        Semaphore.Dispose();
     }
 }

@@ -13,6 +13,10 @@ builder.Services
     .AddLocalization()
     .AddCore()
     .AddValidators()
+    .AddMudBlazorSnackbar(cfg =>
+    {
+        cfg.ShowCloseIcon = true;
+    })
     .AddRazorComponents()
     .AddInteractiveServerComponents();
 
