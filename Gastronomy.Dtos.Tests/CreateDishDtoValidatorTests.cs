@@ -9,13 +9,13 @@ namespace Gastronomy.Dtos.Tests;
 public sealed class CreateDishDtoValidatorTests
 {
     private readonly IStringLocalizer<Resource> _stringLocalizer;
-    private readonly ICreateDishDtoValidationService _validationService;
+    private readonly IDishValidationService _validationService;
     private readonly CreateDishDtoValidator _validator;
 
     public CreateDishDtoValidatorTests()
     {
         _stringLocalizer = Substitute.For<IStringLocalizer<Resource>>();
-        _validationService = Substitute.For<ICreateDishDtoValidationService>();
+        _validationService = Substitute.For<IDishValidationService>();
 
         _stringLocalizer["TooLongDishNameErrorMessage"].Returns(new LocalizedString("TooLongDishNameErrorMessage", "Dish name is too long."));
         _stringLocalizer["EmptyDishNameErrorMessage"].Returns(new LocalizedString("EmptyDishNameErrorMessage", "Dish name cannot be empty."));
@@ -75,7 +75,7 @@ public sealed class CreateDishDtoValidatorTests
     [Fact]
     public async Task Validate_ShouldReturnError_WhenNameIsTaken()
     {
-        _validationService.IsNameTaken("Taken Dish Name").Returns(Task.FromResult(true));
+        _validationService.IsNameTaken("Taken Dish Name", Arg.Any<Guid>()).Returns(Task.FromResult(true));
 
         var dto = new CreateDishDto
         {

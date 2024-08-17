@@ -5,6 +5,7 @@ using Gastronomy.Dtos;
 using Gastronomy.Services.Abstractions;
 using LanguageExt.Common;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace Gastronomy.Core.Web;
 
@@ -27,11 +28,11 @@ public sealed class DishService : IDishService
         var retaurantId = await _userContextService.RestaurentId;
         var dish = _mapper.Map<Dish>(dto);
 
-        if (dto.NewCategoryName is not null)
+        if (dto.IsNewCategory)
         {
             dish.DishCategory = new DishCategory
             {
-                Name = dto.NewCategoryName,
+                Name = dto.NewCategoryName!,
                 RestaurantId = retaurantId
             };
         }
@@ -42,8 +43,13 @@ public sealed class DishService : IDishService
         return dish.Id;
     }
 
-    public async 
-        Task<Result<DishDetailsDto>> GetById(Guid id)
+    public async  Task<Result<DishDetailsDto>> GetById(Guid id)
+    {
+        var detailsResult = await GetDetails(id);
+        return detailsResult.Map(d => _mapper.Map<DishDetailsDto>(d));
+    }
+
+    private async Task<Result<Dish>> GetDetails(Guid id)
     {
         var dishWithRestaurantId = await _dbContext
              .Dishes
@@ -64,7 +70,29 @@ public sealed class DishService : IDishService
             return new(new ForbidException());
         }
 
-        var dto = _mapper.Map<DishDetailsDto>(dishWithRestaurantId.Dish);
-        return dto;
+        return dishWithRestaurantId.Dish;
+    }
+
+    public async Task<Result<DishDetailsDto>> Update(Guid id, UpdateDishDto dto)
+    {
+        var detailsResult = await GetDetails(id);
+        return await detailsResult.MapAsync<DishDetailsDto>(async dish =>
+        {
+            var retaurantId = await _userContextService.RestaurentId;
+            _mapper.Map(dto, dish);
+
+            if (dto.IsNewCategory)
+            {
+                dish.DishCategoryId = default;
+                dish.DishCategory = new DishCategory
+                {
+                    Name = dto.NewCategoryName!,
+                    RestaurantId = retaurantId
+                };
+            }
+
+            await _dbContext.SaveChangesAsync();
+            return _mapper.Map<DishDetailsDto>(dish);
+        });
     }
 }

@@ -16,6 +16,7 @@
                     <MudNumericField T="decimal" For="@(() => Model.BasePrice)"
                                      Label="@(Localizer["CreateNewDishBasePriceLabel"])" @bind-Value="Model.BasePrice"
                                      Min="ValidationConstants.MinDishBasePrice"
+                                     Format="0.00"
                                      Validation="@(new Func<decimal, Task<IEnumerable<string>>>(async _ =>  await Validator.ValidateSingleProperty(Model, nameof(Model.BasePrice))))" />
                 </MudItem>
                 <MudItem xs="6">

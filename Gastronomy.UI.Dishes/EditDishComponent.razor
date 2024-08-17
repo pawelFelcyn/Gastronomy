@@ -1,4 +1,7 @@
-﻿@if(_model is not null)
+﻿@using Gastronomy.Dtos.Validators
+@using Gastronomy.UI.Shared.Extensions;
+
+@if(_model is not null)
 {
     <MudGrid>
         <MudItem xs="9">
@@ -11,20 +14,24 @@
                          @bind-Value="@_isInEditMode" />
         </MudItem>
         <MudItem xs="12">
-            <MudForm Model="@_model" FieldChanged="FormulateFieldChanged">
+            <MudForm Model="@_model" FieldChanged="FormulateFieldChanged" @ref="@_form">
                 <MudGrid>
 
                     <MudItem xs="12">
                         <MudTextField T="string" For="@(() => _model.Name)"
                                       Label="@(Localizer["UpdateDishNameLabel"])"
                                       @bind-Value="_model.Name"
-                                      ReadOnly="@(!_isInEditMode)" />
+                                      ReadOnly="@(!_isInEditMode)"
+                                      Validation="@(new Func<string, Task<IEnumerable<string>>>(async _ =>  await Validator.ValidateSingleProperty(_model, nameof(_model.Name))))"
+                                      MaxLength="ValidationConstants.MaxDishNameLength" />
                     </MudItem>
                     <MudItem xs="12">
                         <MudNumericField T="decimal" For="@(() => _model.BasePrice)"
                                          Label="@(Localizer["UpdateDishBasePriceLabel"])"
                                          @bind-Value="_model.BasePrice" Format="0.00"
-                                         ReadOnly="@(!_isInEditMode)" />
+                                         ReadOnly="@(!_isInEditMode)"
+                                         Min="ValidationConstants.MinDishBasePrice"
+                                         Validation="@(new Func<decimal, Task<IEnumerable<string>>>(async _ =>  await Validator.ValidateSingleProperty(_model, nameof(_model.BasePrice))))" />
                     </MudItem>
                     <MudItem xs="12">
                         <MudTextField T="string" For="@(() => _model.Description)"
@@ -32,13 +39,15 @@
                                       Lines="10"
                                       MaxLines="10"
                                       @bind-Value="_model.Description"
-                                      ReadOnly="@(!_isInEditMode)" />
+                                      ReadOnly="@(!_isInEditMode)"
+                                      Validation="@(new Func<string, Task<IEnumerable<string>>>(async _ =>  await Validator.ValidateSingleProperty(_model, nameof(_model.Description))))"
+                                      MaxLength="ValidationConstants.MaxDishDescriptionLength" />
                     </MudItem>
                     <MudItem xs="3">
                         <MudCheckBox T="bool" For="@(() => _model.IsNewCategory)"
                                      Label="@(Localizer["UpdateDishIsNewCategoryLabel"])"
-                                     @bind-Value="_model.IsNewCategory"
-                                     ReadOnly="@(!_isInEditMode)" />
+                                     @bind-Value="@CreateNewCategory"
+                                     ReadOnly="@(!_isInEditMode)"/>
                     </MudItem>
                     @if (_model.IsNewCategory)
                     {
@@ -46,7 +55,8 @@
                             <MudTextField T="string" For="@(() => _model.NewCategoryName)"
                                           Label="@(Localizer["UpdateDishNewCategoryNameLabel"])"
                                           @bind-Value="_model.NewCategoryName"
-                                          ReadOnly="@(!_isInEditMode)" />
+                                          ReadOnly="@(!_isInEditMode)"
+                                          Validation="@(new Func<string, Task<IEnumerable<string>>>(async _ =>  await Validator.ValidateSingleProperty(_model, nameof(_model.NewCategoryName))))" />
                         </MudItem>
                     }
                     else if (Categories is not null)
@@ -55,7 +65,8 @@
                             <MudSelect T="DishCategoryDto?" Value="@SelectedCategory"
                                        Label="@(Localizer["UpdateDishExistingCategoryLabel"])"
                                        ValueChanged="SelectedCategoryValueChanged"
-                                       ReadOnly="@(!_isInEditMode)">
+                                       ReadOnly="@(!_isInEditMode)"
+                                       Validation="@(new Func<DishCategoryDto?, Task<IEnumerable<string>>>(async _ =>  await Validator.ValidateSingleProperty(_model, nameof(_model.ExistingCategoryId))))">
                                 @foreach (var category in Categories)
                                 {
                                     <MudSelectItem T="DishCategoryDto" Value="@category">
@@ -78,7 +89,8 @@
                         </MudButton>
                         <MudButton Color="Color.Primary"
                                    Variant="Variant.Filled"
-                                   Disabled="@(!_modified || !_isInEditMode)">
+                                   Disabled="@(!_modified || !_isInEditMode)"
+                                   OnClick="@(async  () => await Save())">
                             @Localizer["SaveDishChangesButtonCaption"]
                         </MudButton>
                     </MudItem>

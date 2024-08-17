@@ -8,6 +8,7 @@ public static class DI
 {
     public static IServiceCollection AddValidators(this IServiceCollection services)
     {
-        return services.AddTransient<IValidator<CreateDishDto>, CreateDishDtoValidator>();
+        return services.AddTransient<IValidator<CreateDishDto>, CreateDishDtoValidator>()
+            .AddTransient<IValidator<UpdateDishDto>, UpdateDishDtoValidator>();
     }
 }

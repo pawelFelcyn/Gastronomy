@@ -7,4 +7,5 @@ public interface IDishService
 {
     Task<Result<Guid>> Create(CreateDishDto dto);
     Task<Result<DishDetailsDto>> GetById(Guid id);
+    Task<Result<DishDetailsDto>> Update(Guid id, UpdateDishDto dto);
 }

@@ -1,6 +1,6 @@
 ﻿namespace Gastronomy.Dtos;
 
-public sealed class CreateDishDto
+public sealed class CreateDishDto : IUpsertDish
 {
     public string? Name { get; set; }
     public decimal BasePrice { get; set; }

@@ -147,6 +147,9 @@
   <data name="TooLongDishCategoryNameErrorMessage" xml:space="preserve">
     <value>Nazwa nie może przekraczać {0} znaków.</value>
   </data>
+  <data name="TooLongDishDescriptionValidationMessage" xml:space="preserve">
+    <value>Opis nie może przekraczać (0) znaków.</value>
+  </data>
   <data name="TooLongDishNameErrorMessage" xml:space="preserve">
     <value>Nazwa nie może przekraczać {0} znaków.</value>
   </data>

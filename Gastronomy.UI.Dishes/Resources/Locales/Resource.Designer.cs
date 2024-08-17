@@ -151,6 +151,15 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nie udało się zaktualzować dania.
+        /// </summary>
+        public static string FailedUpdatingDishMessage {
+            get {
+                return ResourceManager.GetString("FailedUpdatingDishMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Przywróć zmiany.
         /// </summary>
         public static string RevertDishChangesButtonCaption {
@@ -165,6 +174,15 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         public static string SaveDishChangesButtonCaption {
             get {
                 return ResourceManager.GetString("SaveDishChangesButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pomyślnie zaktualizowano danie.
+        /// </summary>
+        public static string SuccessfulyUpdatedDishMessage {
+            get {
+                return ResourceManager.GetString("SuccessfulyUpdatedDishMessage", resourceCulture);
             }
         }
         

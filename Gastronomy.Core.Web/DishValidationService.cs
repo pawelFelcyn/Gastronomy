@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Gastronomy.Core.Web;
 
-public sealed class CreateDishDtoValidationService : ICreateDishDtoValidationService
+public sealed class DishValidationService : IDishValidationService
 {
     private readonly GastronomyDbContext _dbContext;
     private readonly IUserContextService _userContextService;
 
-    public CreateDishDtoValidationService(GastronomyDbContext dbContext, 
+    public DishValidationService(GastronomyDbContext dbContext, 
         IUserContextService userContextService)
     {
         _dbContext = dbContext;
@@ -30,13 +30,13 @@ public sealed class CreateDishDtoValidationService : ICreateDishDtoValidationSer
         }
     }
 
-    public async Task<bool> IsNameTaken(string name)
+    public async Task<bool> IsNameTaken(string name, Guid dishId)
     {
         try
         {
             await _dbContext.Semaphore.WaitAsync();
             var restaurantId = await _userContextService.RestaurentId;
-            return await _dbContext.Dishes.AnyAsync(x => x.Name == name && x.DishCategory!.RestaurantId == restaurantId);
+            return await _dbContext.Dishes.AnyAsync(x => x.Name == name && x.DishCategory!.RestaurantId == restaurantId && x.Id != dishId);
         }
         finally
         {

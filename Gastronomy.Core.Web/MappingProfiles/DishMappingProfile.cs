@@ -14,6 +14,9 @@ public sealed class DishMappingProfile : Profile
         CreateMap<Dish, DishDetailsDto>();
 
         CreateMap<DishDetailsDto, UpdateDishDto>()
-            .ForMember(d => d.ExistingDishCategoryId, o => o.MapFrom(s => s.DishCategoryId));
+            .ForMember(d => d.ExistingCategoryId, o => o.MapFrom(s => s.DishCategoryId));
+
+        CreateMap<UpdateDishDto, Dish>()
+            .ForMember(d => d.DishCategoryId, c => c.MapFrom(s => s.ExistingCategoryId));
     }
 }

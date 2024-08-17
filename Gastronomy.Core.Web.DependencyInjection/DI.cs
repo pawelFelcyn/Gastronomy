@@ -11,7 +11,7 @@ public static class DI
     public static IServiceCollection AddCore(this IServiceCollection services)
     {
         return services.AddScoped<IUserContextService, HttpUserContextService>()
-            .AddTransient<ICreateDishDtoValidationService, CreateDishDtoValidationService>()
+            .AddTransient<IDishValidationService, DishValidationService>()
             .AddTransient<IDishCategoryService, DishCategoryService>()
             .AddTransient<IDishService, DishService>()
             .AddSingleton<IMapper>(_ => new MapperConfiguration(cfg =>

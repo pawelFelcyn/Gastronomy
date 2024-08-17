@@ -151,6 +151,15 @@ namespace Gastronomy.Dtos.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Opis nie może przekraczać (0) znaków..
+        /// </summary>
+        public static string TooLongDishDescriptionValidationMessage {
+            get {
+                return ResourceManager.GetString("TooLongDishDescriptionValidationMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nazwa nie może przekraczać {0} znaków..
         /// </summary>
         public static string TooLongDishNameErrorMessage {

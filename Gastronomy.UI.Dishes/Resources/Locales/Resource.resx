@@ -147,11 +147,17 @@
   <data name="ErrorOnCreatingDish" xml:space="preserve">
     <value>Nie udało się utworzyć nowego dania</value>
   </data>
+  <data name="FailedUpdatingDishMessage" xml:space="preserve">
+    <value>Nie udało się zaktualzować dania</value>
+  </data>
   <data name="RevertDishChangesButtonCaption" xml:space="preserve">
     <value>Przywróć zmiany</value>
   </data>
   <data name="SaveDishChangesButtonCaption" xml:space="preserve">
     <value>Zapisz</value>
+  </data>
+  <data name="SuccessfulyUpdatedDishMessage" xml:space="preserve">
+    <value>Pomyślnie zaktualizowano danie</value>
   </data>
   <data name="UpdateDishBasePriceLabel" xml:space="preserve">
     <value>Cena bazowa</value>
