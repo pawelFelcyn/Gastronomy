@@ -8,6 +8,8 @@ namespace Gastronomy.UI.Dishes;
 public partial class EditDishComponent
 {
     private UpdateDishDto? _model;
+    private bool _isInEditMode;
+    private bool _modified;
 
     [Inject]
     public IMapper Mapper { get; set; } = null!;
@@ -41,5 +43,10 @@ public partial class EditDishComponent
         {
             _model.ExistingDishCategoryId = newCategory?.Id;
         }
+    }
+
+    private void FormulateFieldChanged()
+    {
+        _modified = true;
     }
 }

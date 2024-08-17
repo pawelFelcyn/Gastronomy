@@ -138,8 +138,17 @@
   <data name="CreateNewDishUseNewCategoryLabel" xml:space="preserve">
     <value>Nowa kategoria</value>
   </data>
+  <data name="DishDetailsHeader" xml:space="preserve">
+    <value>Szczegóły dania</value>
+  </data>
+  <data name="EnableEditingDishCheckboxCaption" xml:space="preserve">
+    <value>Włącz edycję</value>
+  </data>
   <data name="ErrorOnCreatingDish" xml:space="preserve">
     <value>Nie udało się utworzyć nowego dania</value>
+  </data>
+  <data name="SaveDishChangesButtonCaption" xml:space="preserve">
+    <value>Zapisz</value>
   </data>
   <data name="UpdateDishBasePriceLabel" xml:space="preserve">
     <value>Cena bazowa</value>

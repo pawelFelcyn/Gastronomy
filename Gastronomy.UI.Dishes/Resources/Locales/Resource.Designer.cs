@@ -124,11 +124,38 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Szczegóły dania.
+        /// </summary>
+        public static string DishDetailsHeader {
+            get {
+                return ResourceManager.GetString("DishDetailsHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Włącz edycję.
+        /// </summary>
+        public static string EnableEditingDishCheckboxCaption {
+            get {
+                return ResourceManager.GetString("EnableEditingDishCheckboxCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nie udało się utworzyć nowego dania.
         /// </summary>
         public static string ErrorOnCreatingDish {
             get {
                 return ResourceManager.GetString("ErrorOnCreatingDish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zapisz.
+        /// </summary>
+        public static string SaveDishChangesButtonCaption {
+            get {
+                return ResourceManager.GetString("SaveDishChangesButtonCaption", resourceCulture);
             }
         }
         

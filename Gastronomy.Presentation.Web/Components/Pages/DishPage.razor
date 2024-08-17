@@ -2,9 +2,12 @@
 @page "/dishes/details/{Id:guid}"
 @using Gastronomy.UI.Dishes
 
-<MudGrid>
-    <MudItem xs="6">
-        <EditDishComponent DishDetails="@_dishDetails"
-            Categories="@_allCategories"/>
-    </MudItem>
-</MudGrid>
+
+<div class="p-5">
+    <MudGrid>
+        <MudItem xs="6">
+            <EditDishComponent DishDetails="@_dishDetails"
+                Categories="@_allCategories"/>
+        </MudItem>
+    </MudGrid>
+</div>
