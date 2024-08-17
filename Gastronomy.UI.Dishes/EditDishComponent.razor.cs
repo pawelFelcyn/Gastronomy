@@ -34,7 +34,7 @@ public partial class EditDishComponent
 
     protected override void OnParametersSet()
     {
-        _model = Mapper.Map<UpdateDishDto>(DishDetails);
+        RevertChanges();
     }
 
     private void SelectedCategoryValueChanged(DishCategoryDto? newCategory)
@@ -48,5 +48,11 @@ public partial class EditDishComponent
     private void FormulateFieldChanged()
     {
         _modified = true;
+    }
+
+    private void RevertChanges()
+    {
+        _model = Mapper.Map<UpdateDishDto>(DishDetails);
+        _modified = false;
     }
 }

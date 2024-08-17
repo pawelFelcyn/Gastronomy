@@ -147,6 +147,9 @@
   <data name="ErrorOnCreatingDish" xml:space="preserve">
     <value>Nie udało się utworzyć nowego dania</value>
   </data>
+  <data name="RevertDishChangesButtonCaption" xml:space="preserve">
+    <value>Przywróć zmiany</value>
+  </data>
   <data name="SaveDishChangesButtonCaption" xml:space="preserve">
     <value>Zapisz</value>
   </data>

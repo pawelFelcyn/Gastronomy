@@ -69,6 +69,13 @@
                     }
 
                     <MudItem xs="12" Class="d-flex justify-content-end">
+                        <MudButton Color="Color.Secondary"
+                                   Variant="Variant.Outlined"
+                                   Disabled="@(!_modified)"
+                                   OnClick="RevertChanges"
+                        Class="me-2">
+                            @Localizer["RevertDishChangesButtonCaption"]
+                        </MudButton>
                         <MudButton Color="Color.Primary"
                                    Variant="Variant.Filled"
                                    Disabled="@(!_modified || !_isInEditMode)">

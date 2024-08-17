@@ -151,6 +151,15 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Przywróć zmiany.
+        /// </summary>
+        public static string RevertDishChangesButtonCaption {
+            get {
+                return ResourceManager.GetString("RevertDishChangesButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Zapisz.
         /// </summary>
         public static string SaveDishChangesButtonCaption {
