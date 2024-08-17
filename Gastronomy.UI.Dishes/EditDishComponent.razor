@@ -1,0 +1,54 @@
+﻿@if(_model is not null)
+{
+    <MudForm Model="@_model">
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTextField T="string" For="@(() => _model.Name)" 
+                    Label="@(Localizer["UpdateDishNameLabel"])" 
+                    @bind-Value="_model.Name"/>
+            </MudItem>
+            <MudItem xs="12">
+                <MudNumericField T="decimal" For="@(() => _model.BasePrice)"
+                                 Label="@(Localizer["UpdateDishBasePriceLabel"])"
+                    @bind-Value="_model.BasePrice" Format="0.00"/>
+            </MudItem>
+            <MudItem xs="12">
+                <MudTextField T="string" For="@(() => _model.Description)"
+                    Label="@(Localizer["UpdateDishDescriptionLabel"])"
+                    Lines="10"
+                    MaxLines="10"
+                    @bind-Value="_model.Description"/>
+            </MudItem>
+            <MudItem xs="3">
+                <MudCheckBox T="bool" For="@(() => _model.IsNewCategory)"
+                             Label="@(Localizer["UpdateDishIsNewCategoryLabel"])"
+                    @bind-Value="_model.IsNewCategory"/>
+            </MudItem>
+            @if (_model.IsNewCategory)
+            {
+                <MudItem xs="9">
+                    <MudTextField T="string" For="@(() => _model.NewCategoryName)"
+                                  Label="@(Localizer["UpdateDishNewCategoryNameLabel"])"
+                        @bind-Value="_model.NewCategoryName"/>
+                </MudItem>
+            }
+            else if (Categories is not null)
+            {
+                <MudItem xs="9">
+                    <MudSelect T="DishCategoryDto?" Value="@SelectedCategory"
+                               Label="@(Localizer["UpdateDishExistingCategoryLabel"])"
+                               ValueChanged="SelectedCategoryValueChanged">
+                        @foreach (var category in Categories)
+                        {
+                            <MudSelectItem T="DishCategoryDto" Value="@category">
+                                <MudText>
+                                    @category.Name
+                                </MudText>
+                            </MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+            }
+        </MudGrid>
+    </MudForm>
+}

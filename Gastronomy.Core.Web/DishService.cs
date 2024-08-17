@@ -4,6 +4,7 @@ using Gastronomy.Domain;
 using Gastronomy.Dtos;
 using Gastronomy.Services.Abstractions;
 using LanguageExt.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gastronomy.Core.Web;
 
@@ -39,5 +40,31 @@ public sealed class DishService : IDishService
         await _dbContext.SaveChangesAsync();
 
         return dish.Id;
+    }
+
+    public async 
+        Task<Result<DishDetailsDto>> GetById(Guid id)
+    {
+        var dishWithRestaurantId = await _dbContext
+             .Dishes
+             .Select(d => new
+             {
+                 Dish = d,
+                 d.DishCategory!.RestaurantId
+             })
+             .FirstOrDefaultAsync(d => d.Dish.Id == id);
+
+        if (dishWithRestaurantId is null)
+        {
+            return new(new NotFoundException());
+        }
+
+        if (dishWithRestaurantId.RestaurantId != await _userContextService.RestaurentId)
+        {
+            return new(new ForbidException());
+        }
+
+        var dto = _mapper.Map<DishDetailsDto>(dishWithRestaurantId.Dish);
+        return dto;
     }
 }

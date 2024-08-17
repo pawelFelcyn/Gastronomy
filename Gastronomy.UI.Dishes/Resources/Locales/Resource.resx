@@ -141,4 +141,22 @@
   <data name="ErrorOnCreatingDish" xml:space="preserve">
     <value>Nie udało się utworzyć nowego dania</value>
   </data>
+  <data name="UpdateDishBasePriceLabel" xml:space="preserve">
+    <value>Cena bazowa</value>
+  </data>
+  <data name="UpdateDishDescriptionLabel" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="UpdateDishExistingCategoryLabel" xml:space="preserve">
+    <value>Kategoria</value>
+  </data>
+  <data name="UpdateDishIsNewCategoryLabel" xml:space="preserve">
+    <value>Nowa kategoria</value>
+  </data>
+  <data name="UpdateDishNameLabel" xml:space="preserve">
+    <value>Nazwa</value>
+  </data>
+  <data name="UpdateDishNewCategoryNameLabel" xml:space="preserve">
+    <value>Nowa kategoria</value>
+  </data>
 </root>

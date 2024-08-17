@@ -41,11 +41,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{936D8474
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{E5531606-49C5-4911-B89A-4B0B3813CB56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Dtos.Tests", "Gastronomy.Dtos.Tests\Gastronomy.Dtos.Tests.csproj", "{7316D1FB-927D-4361-83B2-3A61E1AB22C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Dtos.Tests", "Gastronomy.Dtos.Tests\Gastronomy.Dtos.Tests.csproj", "{7316D1FB-927D-4361-83B2-3A61E1AB22C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Dtos.DependencyInjection", "Gastronomy.Dtos.DependencyInjection\Gastronomy.Dtos.DependencyInjection.csproj", "{61F31F70-B646-49C3-AB4D-453B42A087EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Dtos.DependencyInjection", "Gastronomy.Dtos.DependencyInjection\Gastronomy.Dtos.DependencyInjection.csproj", "{61F31F70-B646-49C3-AB4D-453B42A087EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Core.Web.DependencyInjection", "Gastronomy.Core.Web.DependencyInjection\Gastronomy.Core.Web.DependencyInjection.csproj", "{BBAD83EA-0D91-4074-8C21-687879177944}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Core.Web.DependencyInjection", "Gastronomy.Core.Web.DependencyInjection\Gastronomy.Core.Web.DependencyInjection.csproj", "{BBAD83EA-0D91-4074-8C21-687879177944}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

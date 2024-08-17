@@ -22,7 +22,7 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resource {
+    public class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Gastronomy.UI.Dishes.Resources.Locales.Resource", typeof(Resource).Assembly);
@@ -51,7 +51,7 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Cena bazowa.
         /// </summary>
-        internal static string CreateNewDishBasePriceLabel {
+        public static string CreateNewDishBasePriceLabel {
             get {
                 return ResourceManager.GetString("CreateNewDishBasePriceLabel", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Anuluj.
         /// </summary>
-        internal static string CreateNewDishCancelButtonCaption {
+        public static string CreateNewDishCancelButtonCaption {
             get {
                 return ResourceManager.GetString("CreateNewDishCancelButtonCaption", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Kategoria.
         /// </summary>
-        internal static string CreateNewDishExistingategoryLabel {
+        public static string CreateNewDishExistingategoryLabel {
             get {
                 return ResourceManager.GetString("CreateNewDishExistingategoryLabel", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Nazwa.
         /// </summary>
-        internal static string CreateNewDishNameLabel {
+        public static string CreateNewDishNameLabel {
             get {
                 return ResourceManager.GetString("CreateNewDishNameLabel", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Nowa kategoria.
         /// </summary>
-        internal static string CreateNewDishNewCategoryNameLabel {
+        public static string CreateNewDishNewCategoryNameLabel {
             get {
                 return ResourceManager.GetString("CreateNewDishNewCategoryNameLabel", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Zapisz.
         /// </summary>
-        internal static string CreateNewDishSaveButtonCaption {
+        public static string CreateNewDishSaveButtonCaption {
             get {
                 return ResourceManager.GetString("CreateNewDishSaveButtonCaption", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Nowa kategoria.
         /// </summary>
-        internal static string CreateNewDishUseNewCategoryLabel {
+        public static string CreateNewDishUseNewCategoryLabel {
             get {
                 return ResourceManager.GetString("CreateNewDishUseNewCategoryLabel", resourceCulture);
             }
@@ -126,9 +126,63 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         /// <summary>
         ///   Looks up a localized string similar to Nie udało się utworzyć nowego dania.
         /// </summary>
-        internal static string ErrorOnCreatingDish {
+        public static string ErrorOnCreatingDish {
             get {
                 return ResourceManager.GetString("ErrorOnCreatingDish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cena bazowa.
+        /// </summary>
+        public static string UpdateDishBasePriceLabel {
+            get {
+                return ResourceManager.GetString("UpdateDishBasePriceLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opis.
+        /// </summary>
+        public static string UpdateDishDescriptionLabel {
+            get {
+                return ResourceManager.GetString("UpdateDishDescriptionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kategoria.
+        /// </summary>
+        public static string UpdateDishExistingCategoryLabel {
+            get {
+                return ResourceManager.GetString("UpdateDishExistingCategoryLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowa kategoria.
+        /// </summary>
+        public static string UpdateDishIsNewCategoryLabel {
+            get {
+                return ResourceManager.GetString("UpdateDishIsNewCategoryLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nazwa.
+        /// </summary>
+        public static string UpdateDishNameLabel {
+            get {
+                return ResourceManager.GetString("UpdateDishNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowa kategoria.
+        /// </summary>
+        public static string UpdateDishNewCategoryNameLabel {
+            get {
+                return ResourceManager.GetString("UpdateDishNewCategoryNameLabel", resourceCulture);
             }
         }
     }

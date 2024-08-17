@@ -1,0 +1,10 @@
+﻿@* later this has to be moved to a different assembly*@
+@page "/dishes/details/{Id:guid}"
+@using Gastronomy.UI.Dishes
+
+<MudGrid>
+    <MudItem xs="6">
+        <EditDishComponent DishDetails="@_dishDetails"
+            Categories="@_allCategories"/>
+    </MudItem>
+</MudGrid>

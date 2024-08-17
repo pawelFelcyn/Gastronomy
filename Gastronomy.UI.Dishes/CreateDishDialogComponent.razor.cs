@@ -30,6 +30,8 @@ public partial class CreateDishDialogComponent
     public IDishService DishService { get; set; } = null!;
     [CascadingParameter]
     public MudDialogInstance? DialogInstance { get; set; }
+    [Inject]
+    public NavigationManager NavigationManager { get; set; } = null!;
 
     public CreateDishDto Model { get; } = new();
     private readonly List<DishCategoryDto> _categories = new();
@@ -91,8 +93,13 @@ public partial class CreateDishDialogComponent
                 return;
             }
 
-            await DishService.Create(Model);
-            DialogInstance?.Close();
+            var result = await DishService.Create(Model);
+
+            result.IfSucc(id =>
+            {
+                DialogInstance?.Close();
+                NavigationManager.NavigateTo($"/dishes/details/{id}");
+            });
         }
         catch (Exception e)
         {
