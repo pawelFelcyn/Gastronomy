@@ -47,6 +47,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Dtos.DependencyI
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Gastronomy.Core.Web.DependencyInjection", "Gastronomy.Core.Web.DependencyInjection\Gastronomy.Core.Web.DependencyInjection.csproj", "{BBAD83EA-0D91-4074-8C21-687879177944}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DockerComposes", "DockerComposes", "{81F7FAF4-F4F3-4920-ADEE-95E5FC96D644}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dev", "Dev", "{1A02ED15-A285-4270-8F7D-3C805E5746C4}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose-azure-storage.yml = docker-compose-azure-storage.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -134,6 +141,7 @@ Global
 		{7316D1FB-927D-4361-83B2-3A61E1AB22C0} = {E5531606-49C5-4911-B89A-4B0B3813CB56}
 		{61F31F70-B646-49C3-AB4D-453B42A087EE} = {530B4AE0-83B4-4A80-9F01-97D167ED48C5}
 		{BBAD83EA-0D91-4074-8C21-687879177944} = {F69226D8-9765-4C9B-B849-7763C0DD3541}
+		{1A02ED15-A285-4270-8F7D-3C805E5746C4} = {81F7FAF4-F4F3-4920-ADEE-95E5FC96D644}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {159470B9-1AF0-4A42-AABE-4381EEB1FC39}

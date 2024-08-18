@@ -9,5 +9,11 @@
             <EditDishComponent DishDetails="@_dishDetails"
                 Categories="@_allCategories"/>
         </MudItem>
+        <MudItem xs="6">
+            @if (_dishDetails is not null)
+            {
+                <EditDishPhotosComponent DishId="@_dishDetails.Id" />
+            }
+        </MudItem>
     </MudGrid>
 </div>

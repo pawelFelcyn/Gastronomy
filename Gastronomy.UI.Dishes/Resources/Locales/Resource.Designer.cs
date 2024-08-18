@@ -61,6 +61,15 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Nie udało się załadować zdjęć..
+        /// </summary>
+        public static string CouldNotLoadDidhPhotos {
+            get {
+                return ResourceManager.GetString("CouldNotLoadDidhPhotos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cena bazowa.
         /// </summary>
         public static string CreateNewDishBasePriceLabel {
@@ -237,6 +246,42 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         public static string UpdateDishNewCategoryNameLabel {
             get {
                 return ResourceManager.GetString("UpdateDishNewCategoryNameLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie udało się dodać zdjęć, spróbuj ponownie później..
+        /// </summary>
+        public static string UploadPhotoFailed {
+            get {
+                return ResourceManager.GetString("UploadPhotoFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodaj zdjęcia.
+        /// </summary>
+        public static string UploadPhotosButtonCaption {
+            get {
+                return ResourceManager.GetString("UploadPhotosButtonCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Danie nie istnieje. Być może zostało usunięte przez kogoś innego..
+        /// </summary>
+        public static string UploadPhotosFailedNotFound {
+            get {
+                return ResourceManager.GetString("UploadPhotosFailedNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie masz uprawnień, żeby dodawać zdjęcia dla tego dania. .
+        /// </summary>
+        public static string UploadPhotosForbidden {
+            get {
+                return ResourceManager.GetString("UploadPhotosForbidden", resourceCulture);
             }
         }
     }

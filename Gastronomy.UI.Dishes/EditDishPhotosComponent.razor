@@ -1,0 +1,26 @@
+﻿@using Microsoft.AspNetCore.Components.Forms
+<MudStack>
+    <MudFileUpload T="IReadOnlyList<IBrowserFile>"
+                   Accept=".png, .jpg" multiple
+                   FilesChanged="@(async files => await UpladFiles(files))">
+        <ActivatorContent>
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       StartIcon="@Icons.Material.Filled.CloudUpload">
+                @Localizer["UploadPhotosButtonCaption"]
+            </MudButton>
+        </ActivatorContent>
+    </MudFileUpload>
+    <MudGrid>
+        @foreach (var photo in _photos)
+        {
+            <MudItem xs="6">
+                <MudCard>
+                    <MudCardContent>
+                        <MudImage Src="@photo"/>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        }
+    </MudGrid>
+</MudStack>

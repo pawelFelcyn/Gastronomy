@@ -1,0 +1,17 @@
+# this allows the developer to locally simulate azure storage account
+
+version: '3.8'
+
+services:
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    container_name: azurite
+    ports:
+      - "10000:10000"  # Blob Storage
+      - "10001:10001"  # Queue Storage
+      - "10002:10002"  # Table Storage
+    volumes:
+      - data:/data mcr.microsoft.com/azure-storage/azurite
+
+volumes:
+    data:
