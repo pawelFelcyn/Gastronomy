@@ -1,0 +1,26 @@
+﻿@using MudBlazor
+
+<MudGrid Class="p-5">
+    <MudItem xs="3">
+        <MudIcon Icon="@IconString" Color="Color.Secondary" Size="Size.Large"/>
+    </MudItem>
+    <MudItem xs="9">
+        <MudText>
+            @Message
+        </MudText>
+    </MudItem>
+    <MudItem xs="12" Class="d-flex justify-content-end">
+        @if (Options == Core.Abstractions.MessageBoxes.MessageBoxOptions.ConfirmCancel)
+        {
+            <MudButton Color="Color.Error" Variant="Variant.Outlined"
+                       Class="me-2" OnClick="@(() => CloseWithResult(Core.Abstractions.MessageBoxes.MessageBoxResult.Cancel))">
+                @Localizer["CancelMessageBoxButtonContent"]
+            </MudButton>
+            <MudButton Color="Color.Primary"
+                       Variant="Variant.Filled"
+                       OnClick="@(() => CloseWithResult(Core.Abstractions.MessageBoxes.MessageBoxResult.Confirm))">
+                @Localizer["ConfirmMessageBoxButtonContent"]
+            </MudButton>
+        }
+    </MudItem>
+</MudGrid>

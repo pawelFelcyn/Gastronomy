@@ -6,12 +6,14 @@ using Microsoft.EntityFrameworkCore;
 using MudBlazor.Services;
 using Gastronomy.Dtos.DependencyInjection;
 using Gastronomy.Core.Web.DependencyInjection;
+using Gastronomy.UI.Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services
     .AddLocalization()
     .AddCore()
+    .AddUIServices()
     .AddValidators()
     .AddMudBlazorSnackbar(cfg =>
     {

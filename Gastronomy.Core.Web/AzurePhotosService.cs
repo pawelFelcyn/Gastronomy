@@ -56,43 +56,70 @@ public sealed class AzurePhotosService : IPhotosService
     {
         try
         {
-            var restaurantId = await _userContextService.RestaurentId;
-
-            var dishRestaurantId = await _dbContext
-                .Dishes
-                .Where(x => x.Id == dishId)
-                .Select(x => x.DishCategory!.RestaurantId)
-                .FirstOrDefaultAsync();
-
-            if (dishRestaurantId == default)
-            {
-                return new(new NotFoundException());
-            }
-
-            if (dishRestaurantId != restaurantId)
-            {
-                return new(new ForbidException());
-            }
-
-            BlobContainerClient containerClient = _blobServiceClient.GetBlobContainerClient(dishId.ToString());
-            await containerClient.CreateIfNotExistsAsync(PublicAccessType.Blob);
+            return await (await EnsureNotForbidden(dishId))
+                .MapAsync<IEnumerable<string>>(async _ =>
+                {
+                    BlobContainerClient containerClient = _blobServiceClient.GetBlobContainerClient(dishId.ToString());
+                    await containerClient.CreateIfNotExistsAsync(PublicAccessType.Blob);
 
 
-            var urls = dto.Select(async photoData =>
-            {
-                var randomGuid = Guid.NewGuid();
-                var name = $"{randomGuid}{photoData.Extension}";
-                var blobClient = containerClient.GetBlobClient(name);
-                await blobClient.UploadAsync(photoData.FileStream);
+                    var urls = dto.Select(async photoData =>
+                    {
+                        var randomGuid = Guid.NewGuid();
+                        var name = $"{randomGuid}{photoData.Extension}";
+                        var blobClient = containerClient.GetBlobClient(name);
+                        await blobClient.UploadAsync(photoData.FileStream);
 
-                return blobClient.Uri.AbsoluteUri;
-            });
+                        return blobClient.Uri.AbsoluteUri;
+                    });
 
-            return await Task.WhenAll(urls);
+                    return await Task.WhenAll(urls);
+                });
         }
         catch (RequestFailedException)
         {
             return new(new CreatingDishImageFailedException());
+        }
+    }
+
+    private async Task<Result<bool>> EnsureNotForbidden(Guid dishId)
+    {
+        var restaurantId = await _userContextService.RestaurentId;
+
+        var dishRestaurantId = await _dbContext
+            .Dishes
+            .Where(x => x.Id == dishId)
+            .Select(x => x.DishCategory!.RestaurantId)
+            .FirstOrDefaultAsync();
+
+        if (dishRestaurantId == default)
+        {
+            return new(new NotFoundException());
+        }
+
+        if (dishRestaurantId != restaurantId)
+        {
+            return new(new ForbidException());
+        }
+
+        return true;
+    }
+
+    public async Task<Result<bool>> DeleteDishPhoto(Guid dishId, string photoName)
+    {
+        try
+        {
+            return await (await EnsureNotForbidden(dishId))
+            .MapAsync(async _ =>
+            {
+                BlobContainerClient containerClient = _blobServiceClient.GetBlobContainerClient(dishId.ToString());
+                await containerClient.DeleteBlobIfExistsAsync(photoName);
+                return true;
+            });
+        }
+        catch (RequestFailedException)
+        {
+            return new(new DeletingDishImageFailedException());
         }
     }
 }

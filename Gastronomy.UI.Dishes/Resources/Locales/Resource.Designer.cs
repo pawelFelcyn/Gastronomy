@@ -133,6 +133,33 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Czy na pewno chcesz usunąć to zdjęcie?.
+        /// </summary>
+        public static string DeleteDishPhotoConfirmationQuestion {
+            get {
+                return ResourceManager.GetString("DeleteDishPhotoConfirmationQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie udało się uzunąć zdjęcia..
+        /// </summary>
+        public static string DeletingImageFailed {
+            get {
+                return ResourceManager.GetString("DeletingImageFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie masz uprawnień do usinięcia tego zdjęcia..
+        /// </summary>
+        public static string DeletingPhotoForbidden {
+            get {
+                return ResourceManager.GetString("DeletingPhotoForbidden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Szczegóły dania.
         /// </summary>
         public static string DishDetailsHeader {

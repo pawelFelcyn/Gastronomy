@@ -16,9 +16,12 @@
         {
             <MudItem xs="6">
                 <MudCard>
-                    <MudCardContent>
-                        <MudImage Src="@photo"/>
-                    </MudCardContent>
+                    <MudCardMedia Image="@photo" Height="200"/>
+                    <MudCardActions>
+                        <MudIconButton Icon="@Icons.Material.Filled.Delete" 
+                            Color="Color.Error"
+                            OnClick="async () => await DeletePhoto(photo)"/>
+                    </MudCardActions>
                 </MudCard>
             </MudItem>
         }

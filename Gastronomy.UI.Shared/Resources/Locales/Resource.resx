@@ -117,88 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CouldNotLoadDidhPhotos" xml:space="preserve">
-    <value>Nie udało się załadować zdjęć.</value>
-  </data>
-  <data name="CreateNewDishBasePriceLabel" xml:space="preserve">
-    <value>Cena bazowa</value>
-  </data>
-  <data name="CreateNewDishCancelButtonCaption" xml:space="preserve">
+  <data name="CancelMessageBoxButtonContent" xml:space="preserve">
     <value>Anuluj</value>
   </data>
-  <data name="CreateNewDishExistingategoryLabel" xml:space="preserve">
-    <value>Kategoria</value>
-  </data>
-  <data name="CreateNewDishNameLabel" xml:space="preserve">
-    <value>Nazwa</value>
-  </data>
-  <data name="CreateNewDishNewCategoryNameLabel" xml:space="preserve">
-    <value>Nowa kategoria</value>
-  </data>
-  <data name="CreateNewDishSaveButtonCaption" xml:space="preserve">
-    <value>Zapisz</value>
-  </data>
-  <data name="CreateNewDishUseNewCategoryLabel" xml:space="preserve">
-    <value>Nowa kategoria</value>
-  </data>
-  <data name="DeleteDishPhotoConfirmationQuestion" xml:space="preserve">
-    <value>Czy na pewno chcesz usunąć to zdjęcie?</value>
-  </data>
-  <data name="DeletingImageFailed" xml:space="preserve">
-    <value>Nie udało się uzunąć zdjęcia.</value>
-  </data>
-  <data name="DeletingPhotoForbidden" xml:space="preserve">
-    <value>Nie masz uprawnień do usinięcia tego zdjęcia.</value>
-  </data>
-  <data name="DishDetailsHeader" xml:space="preserve">
-    <value>Szczegóły dania</value>
-  </data>
-  <data name="EnableEditingDishCheckboxCaption" xml:space="preserve">
-    <value>Włącz edycję</value>
-  </data>
-  <data name="ErrorOnCreatingDish" xml:space="preserve">
-    <value>Nie udało się utworzyć nowego dania</value>
-  </data>
-  <data name="FailedUpdatingDishMessage" xml:space="preserve">
-    <value>Nie udało się zaktualzować dania</value>
-  </data>
-  <data name="RevertDishChangesButtonCaption" xml:space="preserve">
-    <value>Przywróć zmiany</value>
-  </data>
-  <data name="SaveDishChangesButtonCaption" xml:space="preserve">
-    <value>Zapisz</value>
-  </data>
-  <data name="SuccessfulyUpdatedDishMessage" xml:space="preserve">
-    <value>Pomyślnie zaktualizowano danie</value>
-  </data>
-  <data name="UpdateDishBasePriceLabel" xml:space="preserve">
-    <value>Cena bazowa</value>
-  </data>
-  <data name="UpdateDishDescriptionLabel" xml:space="preserve">
-    <value>Opis</value>
-  </data>
-  <data name="UpdateDishExistingCategoryLabel" xml:space="preserve">
-    <value>Kategoria</value>
-  </data>
-  <data name="UpdateDishIsNewCategoryLabel" xml:space="preserve">
-    <value>Nowa kategoria</value>
-  </data>
-  <data name="UpdateDishNameLabel" xml:space="preserve">
-    <value>Nazwa</value>
-  </data>
-  <data name="UpdateDishNewCategoryNameLabel" xml:space="preserve">
-    <value>Nowa kategoria</value>
-  </data>
-  <data name="UploadPhotoFailed" xml:space="preserve">
-    <value>Nie udało się dodać zdjęć, spróbuj ponownie później.</value>
-  </data>
-  <data name="UploadPhotosButtonCaption" xml:space="preserve">
-    <value>Dodaj zdjęcia</value>
-  </data>
-  <data name="UploadPhotosFailedNotFound" xml:space="preserve">
-    <value>Danie nie istnieje. Być może zostało usunięte przez kogoś innego.</value>
-  </data>
-  <data name="UploadPhotosForbidden" xml:space="preserve">
-    <value>Nie masz uprawnień, żeby dodawać zdjęcia dla tego dania. </value>
+  <data name="ConfirmMessageBoxButtonContent" xml:space="preserve">
+    <value>Potwierdź</value>
   </data>
 </root>
