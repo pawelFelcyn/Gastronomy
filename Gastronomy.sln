@@ -54,6 +54,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dev", "Dev", "{1A02ED15-A28
 		docker-compose-azure-storage.yml = docker-compose-azure-storage.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{73307E23-9E68-4C68-837D-469D7FAC5FAD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gastronomy.Core.Web.Tests", "Gastronomy.Core.Web.Tests\Gastronomy.Core.Web.Tests.csproj", "{EDF3EBBE-D96C-4B38-BF3F-BDD91622CC7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -116,6 +120,10 @@ Global
 		{BBAD83EA-0D91-4074-8C21-687879177944}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BBAD83EA-0D91-4074-8C21-687879177944}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BBAD83EA-0D91-4074-8C21-687879177944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF3EBBE-D96C-4B38-BF3F-BDD91622CC7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF3EBBE-D96C-4B38-BF3F-BDD91622CC7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF3EBBE-D96C-4B38-BF3F-BDD91622CC7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF3EBBE-D96C-4B38-BF3F-BDD91622CC7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,6 +150,8 @@ Global
 		{61F31F70-B646-49C3-AB4D-453B42A087EE} = {530B4AE0-83B4-4A80-9F01-97D167ED48C5}
 		{BBAD83EA-0D91-4074-8C21-687879177944} = {F69226D8-9765-4C9B-B849-7763C0DD3541}
 		{1A02ED15-A285-4270-8F7D-3C805E5746C4} = {81F7FAF4-F4F3-4920-ADEE-95E5FC96D644}
+		{73307E23-9E68-4C68-837D-469D7FAC5FAD} = {936D8474-9CA4-49EA-9DC6-ABA96122BD91}
+		{EDF3EBBE-D96C-4B38-BF3F-BDD91622CC7E} = {73307E23-9E68-4C68-837D-469D7FAC5FAD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {159470B9-1AF0-4A42-AABE-4381EEB1FC39}
