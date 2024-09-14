@@ -17,6 +17,8 @@ public class DishCategoryServiceTests
     [Fact]
     public async Task GetAllCategories_ForGivenRestaurantId_ShouldReturnAllDishCategories()
     {
+        //Seed another restaurant just to make sure, that there are two restaurants, and still only one of them is returned
+        await _testContext.SeedRestaurantWithExampleDishCategories();
         var seededRestaurant = await _testContext.SeedRestaurantWithExampleDishCategories();
         using var scope = _testContext.Services.CreateScope();
         var service = scope.ServiceProvider.GetRequiredService<IDishCategoryService>();
