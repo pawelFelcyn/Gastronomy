@@ -16,7 +16,13 @@
         <MudItem xs="12">
             <MudForm Model="@_model" FieldChanged="FormulateFieldChanged" @ref="@_form">
                 <MudGrid>
-
+                    <MudItem xs="12">
+                        <MudCheckBox T="bool" For="@(() => _model.IsActive)"
+                                     ReadOnly="@(!_isInEditMode)"
+                                     @bind-Value="_model.IsActive"
+                                     Validation="@(new Func<bool, Task<IEnumerable<string>>>(async _ =>  await Validator.ValidateSingleProperty(_model, nameof(_model.IsActive))))"
+                                     Label="@(Localizer["IsActiveEditDishLabel"])" />
+                    </MudItem>
                     <MudItem xs="12">
                         <MudTextField T="string" For="@(() => _model.Name)"
                                       Label="@(Localizer["UpdateDishNameLabel"])"

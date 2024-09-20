@@ -68,31 +68,49 @@ public partial class EditDishPhotosComponent
         }
     }
 
-    protected override async Task OnParametersSetAsync()
+
+    protected override void OnParametersSet()
     {
-        try
+        _ = Task.Run(async () =>
         {
-            _photos.Clear();
-            var result = await PhotosService.GetDishPhotos(DishId);
-            result.IfSucc(_photos.AddRange);
-            result.IfFail(ex =>
+            try
             {
-                if (ex is GettingDishImageFailedException)
+                await InvokeAsync(() => 
                 {
-                    Snackbar.Add(Localizer["CouldNotLoadDidhPhotos"], Severity.Error);
-                }
-                else
+                    _photos.Clear();
+                });
+                var result = await PhotosService.GetDishPhotos(DishId);
+                await InvokeAsync(() =>
                 {
-                    Logger.LogError(ex, "Exception thrown on getting images of a dish");
-                    Snackbar.Add(Localizer["CouldNotLoadDidhPhotos"], Severity.Error);
-                }
-            });
-        }
-        catch (Exception e)
+                    result.IfSucc(_photos.AddRange);
+                });
+                result.IfFail(ex =>
+                {
+                    if (ex is GettingDishImageFailedException)
+                    {
+                        Snackbar.Add(Localizer["CouldNotLoadDidhPhotos"], Severity.Error);
+                    }
+                    else
+                    {
+                        Logger.LogError(ex, "Exception thrown on getting images of a dish");
+                        CouldNotLoadDidhPhotosSnackbar();
+                    }
+                });
+            }
+            catch (Exception e)
+            {
+                Logger.LogError(e, "Exception thrown on getting images of a dish");
+                await CouldNotLoadDidhPhotosSnackbar();
+            }
+        });
+    }
+
+    private async Task CouldNotLoadDidhPhotosSnackbar()
+    {
+        await InvokeAsync(() =>
         {
-            Logger.LogError(e, "Exception thrown on getting images of a dish");
             Snackbar.Add(Localizer["CouldNotLoadDidhPhotos"], Severity.Error);
-        }
+        });
     }
 
     private async Task DeletePhoto(string url)

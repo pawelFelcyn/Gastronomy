@@ -196,6 +196,15 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aktywne.
+        /// </summary>
+        public static string IsActiveEditDishLabel {
+            get {
+                return ResourceManager.GetString("IsActiveEditDishLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Przywróć zmiany.
         /// </summary>
         public static string RevertDishChangesButtonCaption {

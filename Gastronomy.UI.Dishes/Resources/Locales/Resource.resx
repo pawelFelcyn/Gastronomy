@@ -162,6 +162,9 @@
   <data name="FailedUpdatingDishMessage" xml:space="preserve">
     <value>Nie udało się zaktualzować dania</value>
   </data>
+  <data name="IsActiveEditDishLabel" xml:space="preserve">
+    <value>Aktywne</value>
+  </data>
   <data name="RevertDishChangesButtonCaption" xml:space="preserve">
     <value>Przywróć zmiany</value>
   </data>
