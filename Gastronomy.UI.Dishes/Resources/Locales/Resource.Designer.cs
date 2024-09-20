@@ -169,6 +169,24 @@ namespace Gastronomy.UI.Dishes.Resources.Locales {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To danie prawdopodobnie zostało usunięte przez kogoś innego. Zostaniesz przekierowany do strony z listą dań. .
+        /// </summary>
+        public static string DishHasBeenDeletedBySomeoneElseBeforeUpdate {
+            get {
+                return ResourceManager.GetString("DishHasBeenDeletedBySomeoneElseBeforeUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nie udało się zaktualizować dania, ponieważ w międzyczasie zostało ono zaktualizowane przez kogoś innego. Nowe dane zostaną teraz wczytane. .
+        /// </summary>
+        public static string DishHasBeenUpdatedBySomeoneElseBeforeUpdate {
+            get {
+                return ResourceManager.GetString("DishHasBeenUpdatedBySomeoneElseBeforeUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Włącz edycję.
         /// </summary>
         public static string EnableEditingDishCheckboxCaption {

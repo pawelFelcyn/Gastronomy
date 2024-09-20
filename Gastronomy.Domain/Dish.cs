@@ -7,6 +7,8 @@ public class Dish
     public bool IsActive { get; set; }
     public decimal BasePrice { get; set; }
     public string? Description { get; set; }
+    public long RowVersion { get; set; }
+
     public Guid DishCategoryId { get; set; }
     public DishCategory? DishCategory { get; set; }
 }

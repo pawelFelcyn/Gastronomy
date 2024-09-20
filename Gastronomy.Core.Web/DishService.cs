@@ -76,23 +76,39 @@ public sealed class DishService : IDishService
     public async Task<Result<DishDetailsDto>> Update(Guid id, UpdateDishDto dto)
     {
         var detailsResult = await GetDetails(id);
-        return await detailsResult.MapAsync<DishDetailsDto>(async dish =>
+
+        bool resourceChanged = false;
+        detailsResult.IfSucc(dish => resourceChanged = dish.RowVersion > dto.RowVersion);
+
+        if (resourceChanged)
         {
-            var retaurantId = await _userContextService.RestaurentId;
-            _mapper.Map(dto, dish);
+            return new(new ResourceChangedException());
+        }
 
-            if (dto.IsNewCategory)
+        try
+        {
+            return await detailsResult.MapAsync<DishDetailsDto>(async dish =>
             {
-                dish.DishCategoryId = default;
-                dish.DishCategory = new DishCategory
-                {
-                    Name = dto.NewCategoryName!,
-                    RestaurantId = retaurantId
-                };
-            }
+                var retaurantId = await _userContextService.RestaurentId;
+                _mapper.Map(dto, dish);
 
-            await _dbContext.SaveChangesAsync();
-            return _mapper.Map<DishDetailsDto>(dish);
-        });
+                if (dto.IsNewCategory)
+                {
+                    dish.DishCategoryId = default;
+                    dish.DishCategory = new DishCategory
+                    {
+                        Name = dto.NewCategoryName!,
+                        RestaurantId = retaurantId
+                    };
+                }
+
+                await _dbContext.SaveChangesAsync();
+                return _mapper.Map<DishDetailsDto>(dish);
+            });
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            return new(new ResourceChangedException());
+        }
     }
 }

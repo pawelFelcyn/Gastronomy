@@ -7,7 +7,8 @@
     <MudGrid>
         <MudItem xs="6">
             <EditDishComponent DishDetails="@_dishDetails"
-                Categories="@_allCategories"/>
+                Categories="@_allCategories"
+                RefreshDishCallback="@(async () => await LoadDetails())"/>
         </MudItem>
         <MudItem xs="6">
             @if (_dishDetails is not null)

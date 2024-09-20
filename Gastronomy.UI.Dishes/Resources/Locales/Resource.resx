@@ -153,6 +153,12 @@
   <data name="DishDetailsHeader" xml:space="preserve">
     <value>Szczegóły dania</value>
   </data>
+  <data name="DishHasBeenDeletedBySomeoneElseBeforeUpdate" xml:space="preserve">
+    <value>To danie prawdopodobnie zostało usunięte przez kogoś innego. Zostaniesz przekierowany do strony z listą dań. </value>
+  </data>
+  <data name="DishHasBeenUpdatedBySomeoneElseBeforeUpdate" xml:space="preserve">
+    <value>Nie udało się zaktualizować dania, ponieważ w międzyczasie zostało ono zaktualizowane przez kogoś innego. Nowe dane zostaną teraz wczytane. </value>
+  </data>
   <data name="EnableEditingDishCheckboxCaption" xml:space="preserve">
     <value>Włącz edycję</value>
   </data>

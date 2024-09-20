@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using Gastronomy.Core.Abstractions.MessageBoxes;
 using Gastronomy.Dtos;
 using Gastronomy.Services.Abstractions;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using MudBlazor;
+using MessageBoxOptions = Gastronomy.Core.Abstractions.MessageBoxes.MessageBoxOptions;
 
 namespace Gastronomy.UI.Dishes;
 
@@ -32,6 +34,12 @@ public partial class EditDishComponent
     public ISnackbar Snackbar { get; set; } = null!;
     [Inject]
     public ILogger<EditDishComponent> Logger { get; set; } = null!;
+    [Inject]
+    public IMessageBoxService MessageBoxService { get; set; } = null!;
+    [Inject]
+    public NavigationManager NavigationManager { get; set; } = null!;
+    [Parameter]
+    public EventCallback RefreshDishCallback { get; set; }
 
     private bool CreateNewCategory
     {
@@ -114,15 +122,41 @@ public partial class EditDishComponent
                 Snackbar.Add(Localizer["SuccessfulyUpdatedDishMessage"], MudBlazor.Severity.Success);
             });
 
-            result.IfFail(_ =>
+            Exception? exception = null;
+            result.IfFail(ex => exception = ex);
+
+            if (exception is not null)
             {
-                Snackbar.Add(Localizer["FailedUpdatingDishMessage"], MudBlazor.Severity.Error);
-            });
+                await HandleUpdateError(exception);
+            }
         }
         catch (Exception ex)
         {
             Logger.LogError(ex, "Failed updating the dish");
             Snackbar.Add(Localizer["FailedUpdatingDishMessage"], MudBlazor.Severity.Error);
         }
+    }
+
+    private async Task HandleUpdateError(Exception? exception)
+    {
+        if (exception is NotFoundException)
+        {
+            await MessageBoxService.Show(null,
+                Localizer["DishHasBeenDeletedBySomeoneElseBeforeUpdate"],
+                MessageBoxOptions.Ok, MessageIcon.Error);
+            NavigationManager.NavigateTo("/dishes");
+            return;
+        }
+
+        if (exception is ResourceChangedException)
+        {
+            await MessageBoxService.Show(null,
+                Localizer["DishHasBeenUpdatedBySomeoneElseBeforeUpdate"],
+                MessageBoxOptions.Ok, MessageIcon.Error);
+            await RefreshDishCallback.InvokeAsync();
+            return;
+        }
+
+        Snackbar.Add(Localizer["FailedUpdatingDishMessage"], MudBlazor.Severity.Error);
     }
 }

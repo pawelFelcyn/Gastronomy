@@ -8,4 +8,5 @@ public sealed class DishDetailsDto
     public decimal BasePrice { get; set; }
     public string? Description { get; set; }
     public Guid DishCategoryId { get; set; }
+    public long RowVersion { get; set; }
 }

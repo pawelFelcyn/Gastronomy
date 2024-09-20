@@ -2,5 +2,6 @@
 
 public enum MessageIcon
 {
-    Question
+    Question,
+    Error
 }

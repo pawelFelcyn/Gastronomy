@@ -16,5 +16,10 @@ public class DishConfiguration : IEntityTypeConfiguration<Dish>
             .IsUnique();
         builder.Property(x => x.BasePrice)
             .HasColumnType("money");
+
+        builder.Property(x => x.RowVersion)
+            .IsRowVersion()
+            .HasConversion(x => BitConverter.GetBytes(x), x => BitConverter.ToInt64(x))
+            .HasColumnType("rowversion");
     }
 }

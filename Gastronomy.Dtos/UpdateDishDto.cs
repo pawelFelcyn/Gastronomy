@@ -10,4 +10,5 @@ public sealed class UpdateDishDto : IUpsertDish
     public bool IsNewCategory { get; set; }
     public Guid? ExistingCategoryId { get; set; }
     public string? NewCategoryName { get; set; }
+    public long RowVersion { get; set; }
 }

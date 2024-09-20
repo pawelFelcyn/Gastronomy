@@ -2,5 +2,6 @@
 
 public enum MessageBoxOptions
 {
-    ConfirmCancel
+    ConfirmCancel,
+    Ok
 }
